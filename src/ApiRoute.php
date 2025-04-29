@@ -66,6 +66,7 @@ class ApiRoute extends ApiRouteSpec implements IRouter
 	private $formats = [
 		'json' => 'application/json',
 		'xml' => 'application/xml',
+		'plain' => 'text/plain',
 	];
 
 	/**

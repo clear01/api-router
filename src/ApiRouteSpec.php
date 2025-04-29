@@ -48,13 +48,13 @@ abstract class ApiRouteSpec
 	protected $priority = 0;
 
 	/**
-	 * @Enum({"json", "xml"})
+	 * @Enum({"json", "xml", "plain"})
 	 * @var string
 	 */
 	protected $format = 'json';
 
 	/**
-	 * @var array|null
+	 * @var string|array|null
 	 */
 	protected $example;
 
@@ -145,9 +145,9 @@ abstract class ApiRouteSpec
 	protected function setParameters(array $parameters): void
 	{
 		foreach ($parameters as $key => $info) {
-			if (strpos($this->getPath(), "<{$key}>") === false) {
-				throw new ApiRouteWrongPropertyException("Parameter <$key> is not present in the url mask");
-			}
+//			if (strpos($this->getPath(), "<{$key}>") === false) {
+//				throw new ApiRouteWrongPropertyException("Parameter <$key> is not present in the url mask");
+//			}
 
 			foreach ($info as $info_key => $value) {
 				if (!in_array($info_key, $this->parameters_infos, true)) {
@@ -200,13 +200,13 @@ abstract class ApiRouteSpec
 	}
 
 
-	public function setExample(?array $example): void
+	public function setExample($example): void
 	{
 		$this->example = $example;
 	}
 
 
-	public function getExample(): ?array
+	public function getExample()
 	{
 		return $this->example;
 	}
