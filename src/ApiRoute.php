@@ -67,6 +67,7 @@ class ApiRoute extends ApiRouteSpec implements IRouter
 		'json' => 'application/json',
 		'xml' => 'application/xml',
 		'plain' => 'text/plain',
+		'form' => 'application/x-www-form-urlencoded',
 	];
 
 	/**

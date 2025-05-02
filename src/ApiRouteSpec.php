@@ -48,7 +48,7 @@ abstract class ApiRouteSpec
 	protected $priority = 0;
 
 	/**
-	 * @Enum({"json", "xml", "plain"})
+	 * @Enum({"json", "xml", "plain", "form"})
 	 * @var string
 	 */
 	protected $format = 'json';
