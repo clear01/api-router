@@ -48,6 +48,8 @@ class ApiRoute extends ApiRouteSpec implements Router
 	private array $formats = [
 		'json' => 'application/json',
 		'xml' => 'application/xml',
+		'plain' => 'text/plain',
+		'form' => 'application/x-www-form-urlencoded',
 	];
 
 	/** @var array<mixed> */
@@ -118,6 +120,12 @@ class ApiRoute extends ApiRouteSpec implements Router
 		$route->placeholderOrder = $data['placeholderOrder'];
 		$route->disable = $data['disable'];
 		$route->autoBasePath = $data['autoBasePath'];
+		$route->priority = $data['priority'] ?? 0;
+		$route->example = $data['example'];
+		$route->description = $data['description'];
+		$route->response_codes = $data['response_codes'] ?? [];
+		$route->section = $data['section'];
+		$route->format = $data['format'] ?? 'json';
 
 		return $route;
 	}
@@ -478,6 +486,12 @@ class ApiRoute extends ApiRouteSpec implements Router
 			'placeholderOrder' => $this->placeholderOrder,
 			'disable' => $this->disable,
 			'autoBasePath' => $this->autoBasePath,
+			'priority' => $this->priority,
+			'format' => $this->format,
+			'example' => $this->example,
+			'description' => $this->description,
+			'response_codes' => $this->response_codes,
+			'section' => $this->section,
 		];
 	}
 

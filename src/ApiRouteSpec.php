@@ -22,7 +22,7 @@ abstract class ApiRouteSpec
 
 	protected int $priority = 0;
 
-	/** @Enum({"json", "xml"}) */
+	/** @Enum({"json", "xml", "plain", "form"}) */
 	protected string $format = 'json';
 
 	/** @var array<mixed>|null */
@@ -207,9 +207,9 @@ abstract class ApiRouteSpec
 	protected function setParameters(array $parameters): void
 	{
 		foreach ($parameters as $key => $info) {
-			if (strpos($this->getPath(), '<' . $key . '>') === false) {
-				throw new ApiRouteWrongPropertyException('Parameter <' . $key . '> is not present in the url mask');
-			}
+//			if (strpos($this->getPath(), '<' . $key . '>') === false) {
+//				throw new ApiRouteWrongPropertyException('Parameter <' . $key . '> is not present in the url mask');
+//			}
 
 			foreach ($info as $info_key => $value) {
 				if (!in_array($info_key, $this->parameters_infos, true)) {
