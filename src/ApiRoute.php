@@ -125,6 +125,7 @@ class ApiRoute extends ApiRouteSpec implements Router
 		$route->description = $data['description'];
 		$route->response_codes = $data['response_codes'] ?? [];
 		$route->section = $data['section'];
+		$route->tags = $data['tags'] ?? [];
 		$route->format = $data['format'] ?? 'json';
 
 		return $route;
@@ -487,6 +488,7 @@ class ApiRoute extends ApiRouteSpec implements Router
 			'disable' => $this->disable,
 			'autoBasePath' => $this->autoBasePath,
 			'priority' => $this->priority,
+			'tags' => $this->tags,
 			'format' => $this->format,
 			'example' => $this->example,
 			'description' => $this->description,
